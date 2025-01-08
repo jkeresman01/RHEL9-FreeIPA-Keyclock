@@ -2,4 +2,5 @@
 Keyclock and FreeIPA integration on RHEL-8, fiber for backend 
 
 
-![redhat_installation](https://github.com/user-attachments/assets/e9c71e65-8671-48e3-8803-5b14f741534e)
+
+![Screenshot from 2025-01-08 21-29-30](https://github.com/user-attachments/assets/197d4efb-9d0b-46e7-84d7-42119f4bf599)
