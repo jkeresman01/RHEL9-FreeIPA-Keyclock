@@ -74,8 +74,12 @@ kinit admin
 ```
 
 Screenshoot:
-
 ![ipa_server_install_04](https://github.com/user-attachments/assets/1dd586cb-d005-4ba8-9c27-8d8559479b4b)
+
+
+Freeipa installed:
+![free_ipa_installed](https://github.com/user-attachments/assets/c11b07c2-6441-47ba-a80f-55f1fdede06f)
+
 
 
 
