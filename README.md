@@ -3,9 +3,8 @@ Keyclock and FreeIPA integration on RHEL-9, fiber for backend
 
 
 1. RHEL-9 installation
- 
-![rhel_install](https://github.com/user-attachments/assets/8d25623f-954b-442c-84f3-14695fdfdb4c)
-
+   
+ ![RHEL-9_vm_install](https://github.com/user-attachments/assets/89177c83-e0d7-4212-abe6-397f0c8acb1e)
 
 3. FreeIPA installation
 
