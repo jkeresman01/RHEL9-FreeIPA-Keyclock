@@ -1,12 +1,13 @@
 # FreeIPA-Keyclock-Fiber
-Keyclock and FreeIPA integration on RHEL-8, fiber for backend 
+Keyclock and FreeIPA integration on RHEL-9, fiber for backend 
 
 
-1. RHEL-8 installation
-![Screenshot from 2025-01-08 21-29-30](https://github.com/user-attachments/assets/197d4efb-9d0b-46e7-84d7-42119f4bf599)
+1. RHEL-9 installation
+ 
+![rhel_install](https://github.com/user-attachments/assets/8d25623f-954b-442c-84f3-14695fdfdb4c)
 
-2. FreeIPA installation
 
+3. FreeIPA installation
 
 Steps:
 
@@ -14,63 +15,68 @@ Check current hostname:
 ```bash
 hostname -f
 ```
-Change hostname to "josip.keresman-asbp.local"
+Change hostname to "ipa.asbp.local"
 ```bash
-hostnamectl set-hostname "josip.keresman-asbp.local"
+hostnamectl set-hostname "ipa.asbp.local"
 ```
 Make sure that hostname was changed succesffully
 
 ```bash
 hostname -f
 ```
-![hostname](https://github.com/user-attachments/assets/6581c484-579b-4a7b-b601-995d10669ae0)
-
 
 Check our local IP address:
 ```bash
 ifconfig
 ```
-Screenshoots:
-
-![ifconfig](https://github.com/user-attachments/assets/fca448b4-2666-49cc-9d5b-d16a1cb09d0f)
-
-
 
 Open /etc/hosts/ with editor of choice and set (IP address and hostname):
 
 ```bash
-su vi /etc/hosts/
+sudo vi /etc/hosts/
 ```
 Save the changes after editing.
 
-
-Screenshot:
-![etsi](https://github.com/user-attachments/assets/eb4cabab-f021-40dd-9488-3954a9aeafab)
-
-
-Enable baseos and appstream
-
-```bash
-subscription-manager repos --enable-rhel-8-for-x86_64-baseos-rpms
-subscription-manager repos --enable-rhel-8-for-x86_64-appstream-rpms
-```
-
-```bash
-yum module list idm
-yum module enable idm:DL1
-yum module install idm:DL1/dns
-```
 Screenshot:
 
-![idm_module_list](https://github.com/user-attachments/assets/103a0ebe-057d-4022-8a8e-493df14065f6)
+![ETSI](https://github.com/user-attachments/assets/d9f38549-e78d-4596-b32e-67ccd8e199e4)
 
+
+```bash
+dnf install ipa-server
+```
 
 Installation of free ipa LDAP server:
 
-![install_ipa_01](https://github.com/user-attachments/assets/e3433dee-d28c-4a1b-a058-e05fe24a7856)
-![install_ipa_02](https://github.com/user-attachments/assets/f7ffddb1-0a9c-4247-bf30-8204a8b32f5d)
-![ipa_install_03](https://github.com/user-attachments/assets/eaf531a0-c5c0-48f5-9b31-36ff8286c18e)
-![ipa_install_04](https://github.com/user-attachments/assets/f6f4a71b-2b9f-45c9-a1bb-3a8d7ed07285)
+![ipa_server_install_01](https://github.com/user-attachments/assets/d5cc4a1d-eebc-4700-83ac-57abb5e05f9d)
+![ipa_server_install_02](https://github.com/user-attachments/assets/5f6ecdde-8fe5-44c1-8e85-1d190a3d0a60)
+![ipa_server_install_03](https://github.com/user-attachments/assets/c8428292-c838-4268-b485-15650706020b)
+
+Open required ports:
+
+```bash
+firewall-cmd --permanent --add-service={http,https,ldap,ldaps,kerberos}
+firewall-cmd --permanent --add-port={80,443,389,636,88}/tcp
+firewall-cmd --permanent --add-port={88,464,123}/udp
+
+firewall-cmd --reload
+```
+
+Check open ports:
+```bash
+
+firewall-cmd --reload
+```
+
+Accquire kerberos ticket:
+
+```bash
+kinit admin
+```
+
+Screenshoot:
+
+![ipa_server_install_04](https://github.com/user-attachments/assets/1dd586cb-d005-4ba8-9c27-8d8559479b4b)
 
 
 
