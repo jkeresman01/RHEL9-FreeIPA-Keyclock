@@ -1,5 +1,5 @@
-# RHEL9-FreeIPA-Keyclock-Fiber
-Keyclock and FreeIPA integration on RHEL-9, fiber for backend 
+# RHEL9-FreeIPA-Keyclock
+Keyclock and FreeIPA integration on RHEL-9
 
 
 1. RHEL-9 installation
